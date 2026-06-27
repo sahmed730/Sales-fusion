@@ -1,0 +1,201 @@
+UNIQUE_ID_OF_PRODUCT,CATEGORY_OF_PRODUCT,PRODUCT_NAME,NO_OF_STOCK_UNIT_PURCHASED_BY_STORE,NO_OF_STOCK_LEFT,UNIT_COST_FROM_COMPANY_TO_STORE,MRP,DISCOUNT_GIVEN_BY_COMPANY_TO_STORE,ACTUAL_PRICE_TO_CUSTOMER,EXPIRY_DATE_OF_PRODUCT,DATE_OF_STOCK_PURCHASED,PURCHASED_COMPANY_NAME,COMPANY_EMAIL_FOR_ORDERING
+P001,Grocery,Fortune Oil 1L,414,218,53.47,79.27,8.26,73.0,2026-08-05,2025-07-22,Hindustan Unilever,orders@hul.com
+P002,Grocery,Fortune Oil 1L,224,223,96.9,133.51,7.15,128.71,2027-03-27,2025-04-25,Coca Cola India,order@coke.in
+P003,Household,Godrej Air Freshener,125,71,29.63,36.51,5.51,32.97,2027-10-06,2025-04-13,Hindustan Unilever,orders@hul.com
+P004,Household,Tide Detergent 1kg,386,16,173.66,213.55,8.85,210.46,2026-04-18,2025-07-17,ITC,itc.orders@itc.in
+P005,Grocery,Maggie Noodles 70g,450,145,77.07,106.86,2.77,104.84,2026-02-20,2025-06-19,Amul,orders@amul.coop
+P006,Personal Care,Dettol Handwash 200ml,198,129,98.53,124.71,1.74,123.41,2025-10-22,2025-07-22,Hindustan Unilever,orders@hul.com
+P007,Bakery,Britannia Bread 400g,333,249,114.2,149.25,6.91,148.33,2026-04-27,2025-04-12,Hindustan Unilever,orders@hul.com
+P008,Bakery,Parle G 100g,466,273,161.1,241.42,2.46,241.35,2025-10-30,2025-06-02,Parle,sales@parleproducts.com
+P009,Household,Godrej Air Freshener,76,57,117.61,144.3,4.99,142.66,2027-07-31,2025-05-02,Hindustan Unilever,orders@hul.com
+P010,Grocery,Maggie Noodles 70g,218,62,127.08,163.85,9.0,156.13,2027-12-24,2025-05-23,Amul,orders@amul.coop
+P011,Grocery,Fortune Oil 1L,432,369,133.75,162.28,7.8,159.72,2027-03-22,2025-06-26,Parle,sales@parleproducts.com
+P012,Grocery,Fortune Oil 1L,476,161,127.69,185.25,9.11,178.71,2026-08-28,2025-05-27,Hindustan Unilever,orders@hul.com
+P013,Personal Care,Dove Soap 75g,365,187,125.35,156.34,4.77,152.74,2025-11-27,2025-06-07,PepsiCo,order@pepsico.com
+P014,Grocery,Maggie Noodles 70g,357,118,38.75,53.82,4.45,49.6,2026-08-04,2025-07-16,Britannia,sales@britannia.co.in
+P015,Dairy,Nestle Milk 1L,134,53,106.32,133.21,3.56,133.13,2026-11-10,2025-04-01,Amul,orders@amul.coop
+P016,Frozen Foods,Kwality Walls Ice Cream 500ml,246,68,43.89,53.07,5.18,48.98,2026-01-28,2025-05-23,Coca Cola India,order@coke.in
+P017,Bakery,Parle G 100g,465,444,44.23,53.77,2.56,52.25,2026-06-17,2025-07-13,Amul,orders@amul.coop
+P018,Household,Tide Detergent 1kg,496,290,72.82,108.8,4.45,107.57,2026-04-21,2025-05-16,Nestle,order@nestle.in
+P019,Personal Care,Colgate Toothpaste 100g,354,232,142.1,179.74,7.22,178.24,2026-09-01,2025-04-04,Parle,sales@parleproducts.com
+P020,Household,Godrej Air Freshener,117,37,105.92,157.98,8.85,153.66,2027-10-10,2025-04-26,PepsiCo,order@pepsico.com
+P021,Grocery,Maggie Noodles 70g,407,222,93.83,139.48,8.28,133.72,2027-02-26,2025-04-08,Britannia,sales@britannia.co.in
+P022,Bakery,Parle G 100g,489,351,48.01,58.22,4.44,55.06,2027-09-28,2025-07-02,Nestle,order@nestle.in
+P023,Household,Godrej Air Freshener,238,63,145.03,178.63,6.71,175.3,2026-07-30,2025-05-18,ITC,itc.orders@itc.in
+P024,Frozen Foods,Kwality Walls Ice Cream 500ml,169,95,93.4,121.34,9.32,118.61,2027-02-19,2025-05-22,PepsiCo,order@pepsico.com
+P025,Snacks,Lays Classic 50g,361,294,149.72,180.03,8.25,175.98,2027-06-01,2025-06-08,Amul,orders@amul.coop
+P026,Personal Care,Dettol Handwash 200ml,306,146,153.18,228.08,9.12,223.03,2027-08-30,2025-04-10,Coca Cola India,order@coke.in
+P027,Grocery,Fortune Oil 1L,431,338,173.69,253.52,1.13,252.73,2027-12-16,2025-07-18,Britannia,sales@britannia.co.in
+P028,Snacks,Lays Classic 50g,355,278,181.32,264.73,3.29,263.86,2025-08-17,2025-04-12,Amul,orders@amul.coop
+P029,Bakery,Sunfeast Biscuits 200g,370,310,43.2,62.34,1.15,61.21,2027-11-30,2025-04-09,Hindustan Unilever,orders@hul.com
+P030,Snacks,Lays Classic 50g,159,99,12.44,16.53,7.82,16.34,2026-01-25,2025-06-20,PepsiCo,order@pepsico.com
+P031,Dairy,Nestle Milk 1L,334,41,141.88,204.53,6.92,202.52,2027-12-05,2025-04-25,PepsiCo,order@pepsico.com
+P032,Personal Care,Dove Soap 75g,254,231,183.66,229.65,7.82,224.4,2027-04-10,2025-05-18,Parle,sales@parleproducts.com
+P033,Grocery,Fortune Oil 1L,409,356,41.33,55.92,2.32,55.69,2027-12-27,2025-04-03,Britannia,sales@britannia.co.in
+P034,Personal Care,Dove Soap 75g,166,119,117.75,174.01,1.47,172.7,2027-06-17,2025-05-12,ITC,itc.orders@itc.in
+P035,Personal Care,Colgate Toothpaste 100g,60,51,33.09,41.7,9.79,38.09,2026-02-09,2025-05-23,Parle,sales@parleproducts.com
+P036,Dairy,Amul Butter 500g,371,303,41.9,60.96,9.17,59.27,2027-09-07,2025-04-27,Nestle,order@nestle.in
+P037,Personal Care,Dove Soap 75g,179,26,164.83,240.78,9.56,238.57,2027-01-18,2025-05-27,Amul,orders@amul.coop
+P038,Household,Tide Detergent 1kg,327,1,44.22,57.19,3.61,54.25,2026-09-15,2025-04-04,Nestle,order@nestle.in
+P039,Bakery,Sunfeast Biscuits 200g,271,126,98.93,136.89,8.99,131.84,2026-11-09,2025-05-31,Parle,sales@parleproducts.com
+P040,Personal Care,Colgate Toothpaste 100g,165,153,41.27,50.71,9.87,41.14,2027-12-17,2025-07-05,ITC,itc.orders@itc.in
+P041,Personal Care,Colgate Toothpaste 100g,127,119,116.57,161.91,7.25,157.48,2027-10-09,2025-07-05,ITC,itc.orders@itc.in
+P042,Dairy,Nestle Milk 1L,370,13,136.1,172.98,4.47,171.83,2026-03-24,2025-04-15,Amul,orders@amul.coop
+P043,Bakery,Sunfeast Biscuits 200g,218,6,27.54,35.29,4.64,32.8,2026-11-07,2025-07-05,Britannia,sales@britannia.co.in
+P044,Beverages,Pepsi 500ml,243,116,32.68,41.57,6.26,35.42,2027-05-12,2025-06-28,Amul,orders@amul.coop
+P045,Personal Care,Colgate Toothpaste 100g,288,124,121.64,167.37,1.3,166.46,2026-01-25,2025-07-03,Coca Cola India,order@coke.in
+P046,Dairy,Nestle Milk 1L,89,78,198.79,284.04,9.46,282.45,2026-07-24,2025-07-15,Nestle,order@nestle.in
+P047,Bakery,Britannia Bread 400g,367,73,114.12,154.49,1.59,154.34,2027-04-14,2025-04-03,Hindustan Unilever,orders@hul.com
+P048,Dairy,Nestle Milk 1L,236,72,195.43,254.59,8.26,254.57,2026-08-10,2025-05-09,Nestle,order@nestle.in
+P049,Household,Tide Detergent 1kg,324,317,115.85,149.02,8.09,148.47,2026-11-26,2025-04-27,PepsiCo,order@pepsico.com
+P050,Personal Care,Dove Soap 75g,51,7,176.38,258.88,5.65,256.6,2026-06-23,2025-06-10,Parle,sales@parleproducts.com
+P051,Bakery,Britannia Bread 400g,271,216,43.61,52.41,5.05,50.85,2026-07-01,2025-04-01,Hindustan Unilever,orders@hul.com
+P052,Bakery,Parle G 100g,244,144,67.55,83.37,1.61,81.79,2025-12-03,2025-04-22,PepsiCo,order@pepsico.com
+P053,Grocery,Fortune Oil 1L,452,194,12.39,15.21,3.4,12.1,2026-06-07,2025-07-16,Britannia,sales@britannia.co.in
+P054,Personal Care,Colgate Toothpaste 100g,233,0,110.08,164.03,8.21,161.15,2026-07-08,2025-06-24,Nestle,order@nestle.in
+P055,Personal Care,Colgate Toothpaste 100g,172,106,17.03,22.11,1.88,20.75,2027-04-15,2025-04-27,ITC,itc.orders@itc.in
+P056,Dairy,Amul Butter 500g,268,20,86.8,104.51,3.48,104.02,2026-10-11,2025-05-15,Hindustan Unilever,orders@hul.com
+P057,Personal Care,Colgate Toothpaste 100g,107,55,12.72,18.9,9.12,16.26,2026-05-12,2025-07-08,Hindustan Unilever,orders@hul.com
+P058,Bakery,Parle G 100g,307,183,41.64,60.82,6.57,60.18,2026-02-09,2025-07-13,Parle,sales@parleproducts.com
+P059,Bakery,Sunfeast Biscuits 200g,337,139,86.76,118.81,3.55,115.29,2026-03-30,2025-06-26,Nestle,order@nestle.in
+P060,Bakery,Parle G 100g,321,230,173.01,215.96,4.17,215.41,2027-03-19,2025-04-17,Nestle,order@nestle.in
+P061,Dairy,Nestle Milk 1L,442,234,139.89,201.9,8.87,195.6,2027-03-12,2025-06-25,Parle,sales@parleproducts.com
+P062,Personal Care,Dove Soap 75g,333,186,14.92,19.34,7.97,14.06,2026-12-30,2025-06-09,ITC,itc.orders@itc.in
+P063,Personal Care,Dettol Handwash 200ml,85,83,102.0,139.66,9.38,134.21,2026-02-28,2025-07-19,Coca Cola India,order@coke.in
+P064,Personal Care,Dove Soap 75g,240,91,176.1,246.08,5.9,241.96,2026-10-09,2025-06-28,Nestle,order@nestle.in
+P065,Beverages,Coca Cola 1L,92,19,198.37,282.08,6.61,276.9,2026-04-01,2025-04-10,Coca Cola India,order@coke.in
+P066,Household,Tide Detergent 1kg,417,288,14.93,20.93,1.38,19.95,2026-04-28,2025-05-20,Hindustan Unilever,orders@hul.com
+P067,Grocery,Fortune Oil 1L,276,15,95.87,124.76,5.09,124.32,2027-08-18,2025-04-19,Coca Cola India,order@coke.in
+P068,Personal Care,Colgate Toothpaste 100g,216,160,77.85,113.41,7.25,107.66,2027-09-04,2025-07-22,Coca Cola India,order@coke.in
+P069,Snacks,Lays Classic 50g,235,96,70.09,93.64,5.71,89.16,2026-01-05,2025-05-14,ITC,itc.orders@itc.in
+P070,Personal Care,Dove Soap 75g,116,32,175.66,253.9,8.11,246.95,2026-07-20,2025-04-07,ITC,itc.orders@itc.in
+P071,Personal Care,Dove Soap 75g,367,279,10.03,14.89,8.01,7.72,2026-05-24,2025-07-03,PepsiCo,order@pepsico.com
+P072,Beverages,Pepsi 500ml,450,66,57.79,83.33,4.25,81.35,2027-05-26,2025-06-17,PepsiCo,order@pepsico.com
+P073,Grocery,Fortune Oil 1L,235,228,99.72,120.38,2.05,119.61,2025-08-30,2025-05-04,Britannia,sales@britannia.co.in
+P074,Dairy,Amul Butter 500g,96,77,61.47,76.76,2.49,75.73,2026-04-16,2025-07-20,Parle,sales@parleproducts.com
+P075,Frozen Foods,Kwality Walls Ice Cream 500ml,238,86,177.36,254.34,2.23,254.16,2025-11-12,2025-05-13,Britannia,sales@britannia.co.in
+P076,Bakery,Parle G 100g,481,466,15.29,21.71,6.82,20.35,2026-05-17,2025-04-06,Parle,sales@parleproducts.com
+P077,Personal Care,Dettol Handwash 200ml,187,127,116.97,143.31,6.27,142.4,2027-03-01,2025-07-20,PepsiCo,order@pepsico.com
+P078,Dairy,Nestle Milk 1L,379,160,122.79,153.32,4.9,151.65,2026-10-14,2025-07-11,Amul,orders@amul.coop
+P079,Dairy,Amul Butter 500g,110,52,79.16,117.09,8.88,112.97,2027-10-02,2025-07-13,Britannia,sales@britannia.co.in
+P080,Grocery,Fortune Oil 1L,91,89,94.78,136.21,6.24,131.08,2027-09-05,2025-06-25,Parle,sales@parleproducts.com
+P081,Household,Godrej Air Freshener,55,28,69.17,103.6,3.11,102.91,2027-05-07,2025-06-26,PepsiCo,order@pepsico.com
+P082,Dairy,Amul Butter 500g,194,145,123.35,164.79,9.27,161.44,2025-09-21,2025-04-19,Amul,orders@amul.coop
+P083,Bakery,Parle G 100g,326,321,18.69,25.95,8.19,20.66,2027-11-06,2025-04-30,Hindustan Unilever,orders@hul.com
+P084,Dairy,Amul Butter 500g,203,32,57.27,69.23,7.03,68.35,2026-12-25,2025-04-20,Coca Cola India,order@coke.in
+P085,Grocery,Fortune Oil 1L,439,187,66.12,98.08,3.85,95.51,2026-09-22,2025-05-02,Parle,sales@parleproducts.com
+P086,Beverages,Pepsi 500ml,453,266,182.55,252.33,5.83,247.09,2026-12-19,2025-04-28,PepsiCo,order@pepsico.com
+P087,Bakery,Parle G 100g,326,168,163.97,198.68,3.94,197.66,2026-08-21,2025-07-01,ITC,itc.orders@itc.in
+P088,Bakery,Britannia Bread 400g,445,113,85.85,109.88,4.31,106.08,2025-08-01,2025-04-13,Amul,orders@amul.coop
+P089,Snacks,Lays Classic 50g,255,28,143.24,191.97,9.07,187.38,2027-11-03,2025-07-04,Coca Cola India,order@coke.in
+P090,Frozen Foods,Kwality Walls Ice Cream 500ml,166,127,19.35,23.93,3.0,23.49,2025-11-17,2025-06-18,Amul,orders@amul.coop
+P091,Frozen Foods,Kwality Walls Ice Cream 500ml,471,183,98.43,122.35,6.77,116.57,2027-05-09,2025-07-07,Coca Cola India,order@coke.in
+P092,Grocery,Maggie Noodles 70g,356,96,151.66,192.89,4.62,188.88,2026-11-20,2025-04-04,Nestle,order@nestle.in
+P093,Personal Care,Colgate Toothpaste 100g,338,274,146.23,195.26,3.85,193.46,2026-05-14,2025-07-16,Coca Cola India,order@coke.in
+P094,Dairy,Amul Butter 500g,295,70,150.17,200.07,4.85,200.02,2025-08-17,2025-05-26,Parle,sales@parleproducts.com
+P095,Frozen Foods,Kwality Walls Ice Cream 500ml,83,63,155.02,209.1,4.1,205.87,2026-01-14,2025-04-10,Amul,orders@amul.coop
+P096,Beverages,Coca Cola 1L,450,74,103.92,134.98,4.45,130.69,2026-11-27,2025-05-14,Parle,sales@parleproducts.com
+P097,Beverages,Coca Cola 1L,339,215,56.36,73.97,6.98,68.84,2025-12-17,2025-04-04,PepsiCo,order@pepsico.com
+P098,Personal Care,Colgate Toothpaste 100g,107,49,92.31,112.29,3.14,110.89,2027-03-20,2025-07-11,Parle,sales@parleproducts.com
+P099,Snacks,Lays Classic 50g,82,35,90.23,133.62,4.32,132.2,2026-05-12,2025-07-07,Parle,sales@parleproducts.com
+P100,Dairy,Nestle Milk 1L,237,117,127.91,170.79,4.51,168.12,2027-03-04,2025-06-13,Amul,orders@amul.coop
+P101,Household,Tide Detergent 1kg,412,107,67.51,84.94,8.0,78.27,2027-10-06,2025-06-02,Coca Cola India,order@coke.in
+P102,Household,Tide Detergent 1kg,86,86,108.02,140.82,4.21,138.44,2025-12-11,2025-06-03,Hindustan Unilever,orders@hul.com
+P103,Bakery,Parle G 100g,235,14,44.75,59.55,9.94,56.57,2026-11-08,2025-06-16,Nestle,order@nestle.in
+P104,Beverages,Coca Cola 1L,193,3,73.04,90.26,5.79,89.51,2026-06-18,2025-05-20,ITC,itc.orders@itc.in
+P105,Bakery,Parle G 100g,104,5,188.34,279.98,3.68,278.68,2026-03-10,2025-05-03,Nestle,order@nestle.in
+P106,Beverages,Pepsi 500ml,61,9,89.6,121.89,7.7,117.69,2026-01-29,2025-07-22,ITC,itc.orders@itc.in
+P107,Grocery,Fortune Oil 1L,69,37,162.94,212.17,3.06,211.0,2027-04-23,2025-05-19,Parle,sales@parleproducts.com
+P108,Bakery,Sunfeast Biscuits 200g,456,63,124.78,165.6,6.46,164.53,2025-10-07,2025-06-23,Britannia,sales@britannia.co.in
+P109,Personal Care,Dettol Handwash 200ml,75,5,48.98,60.84,9.55,58.03,2026-03-16,2025-05-26,Coca Cola India,order@coke.in
+P110,Dairy,Amul Butter 500g,143,89,155.52,192.78,9.57,185.83,2026-09-12,2025-04-24,Amul,orders@amul.coop
+P111,Household,Godrej Air Freshener,81,77,162.87,212.97,3.81,210.64,2025-08-07,2025-05-10,ITC,itc.orders@itc.in
+P112,Dairy,Amul Butter 500g,173,2,101.52,145.3,4.04,142.71,2026-10-03,2025-07-17,Coca Cola India,order@coke.in
+P113,Personal Care,Colgate Toothpaste 100g,361,153,194.25,252.7,2.45,250.31,2026-08-18,2025-07-20,Parle,sales@parleproducts.com
+P114,Dairy,Nestle Milk 1L,440,435,29.11,42.01,1.42,41.23,2026-08-04,2025-07-21,Parle,sales@parleproducts.com
+P115,Grocery,Fortune Oil 1L,430,333,181.09,236.88,8.8,231.51,2026-01-27,2025-05-01,Amul,orders@amul.coop
+P116,Dairy,Nestle Milk 1L,369,284,42.06,56.83,4.31,54.96,2027-12-01,2025-05-31,PepsiCo,order@pepsico.com
+P117,Grocery,Fortune Oil 1L,412,76,24.78,35.16,3.27,33.55,2026-03-22,2025-05-09,Coca Cola India,order@coke.in
+P118,Household,Tide Detergent 1kg,300,217,122.16,165.71,6.01,162.58,2025-10-21,2025-04-05,Nestle,order@nestle.in
+P119,Grocery,Maggie Noodles 70g,349,72,99.36,134.97,4.06,134.49,2025-11-06,2025-06-19,Nestle,order@nestle.in
+P120,Bakery,Parle G 100g,240,2,180.93,250.85,2.74,249.62,2026-06-25,2025-06-24,ITC,itc.orders@itc.in
+P121,Dairy,Nestle Milk 1L,258,82,103.83,135.63,5.28,134.36,2026-05-02,2025-05-27,Hindustan Unilever,orders@hul.com
+P122,Personal Care,Colgate Toothpaste 100g,351,332,164.98,219.1,3.65,217.32,2026-05-18,2025-04-14,Coca Cola India,order@coke.in
+P123,Bakery,Parle G 100g,448,21,33.17,47.05,9.97,40.44,2027-10-12,2025-07-09,Amul,orders@amul.coop
+P124,Frozen Foods,Kwality Walls Ice Cream 500ml,154,22,170.92,237.66,1.22,236.89,2027-01-25,2025-06-13,Parle,sales@parleproducts.com
+P125,Bakery,Britannia Bread 400g,406,257,165.73,206.87,9.19,202.21,2026-07-22,2025-06-07,ITC,itc.orders@itc.in
+P126,Household,Godrej Air Freshener,315,200,61.42,89.4,3.57,85.85,2026-02-14,2025-06-19,PepsiCo,order@pepsico.com
+P127,Personal Care,Dove Soap 75g,143,72,78.25,104.0,4.09,101.02,2026-10-30,2025-04-30,Amul,orders@amul.coop
+P128,Frozen Foods,Kwality Walls Ice Cream 500ml,148,98,91.38,116.76,7.97,113.93,2027-02-04,2025-04-20,Amul,orders@amul.coop
+P129,Beverages,Coca Cola 1L,392,391,20.49,24.92,1.33,23.71,2026-08-28,2025-05-05,Amul,orders@amul.coop
+P130,Bakery,Sunfeast Biscuits 200g,208,103,126.43,186.11,2.85,184.6,2027-04-21,2025-07-11,PepsiCo,order@pepsico.com
+P131,Bakery,Britannia Bread 400g,459,330,182.81,229.52,9.8,225.11,2027-05-06,2025-05-24,ITC,itc.orders@itc.in
+P132,Beverages,Coca Cola 1L,365,23,98.37,136.73,4.0,133.72,2027-05-05,2025-04-11,Parle,sales@parleproducts.com
+P133,Frozen Foods,Kwality Walls Ice Cream 500ml,384,206,44.05,56.14,9.67,52.81,2026-08-19,2025-07-20,Amul,orders@amul.coop
+P134,Frozen Foods,Kwality Walls Ice Cream 500ml,261,161,93.59,125.54,3.97,124.08,2027-11-27,2025-06-21,Coca Cola India,order@coke.in
+P135,Bakery,Sunfeast Biscuits 200g,362,55,191.38,281.53,5.66,277.54,2026-08-09,2025-04-19,PepsiCo,order@pepsico.com
+P136,Grocery,Fortune Oil 1L,269,121,126.57,158.15,4.75,155.1,2027-07-24,2025-04-02,Coca Cola India,order@coke.in
+P137,Dairy,Amul Butter 500g,482,105,32.55,47.64,1.07,47.06,2027-07-15,2025-05-17,Coca Cola India,order@coke.in
+P138,Bakery,Parle G 100g,446,98,31.26,43.48,4.94,43.33,2027-12-13,2025-04-02,Parle,sales@parleproducts.com
+P139,Household,Godrej Air Freshener,355,236,162.72,221.78,5.68,220.97,2025-08-27,2025-07-20,Amul,orders@amul.coop
+P140,Dairy,Amul Butter 500g,299,121,115.4,138.53,1.63,138.3,2026-10-29,2025-05-05,Amul,orders@amul.coop
+P141,Beverages,Coca Cola 1L,118,86,177.04,222.8,3.68,219.47,2027-03-07,2025-04-27,Britannia,sales@britannia.co.in
+P142,Beverages,Pepsi 500ml,401,384,127.21,159.68,3.81,158.3,2026-12-29,2025-05-25,Parle,sales@parleproducts.com
+P143,Frozen Foods,Kwality Walls Ice Cream 500ml,324,194,175.72,212.99,1.93,212.11,2027-09-29,2025-04-30,Amul,orders@amul.coop
+P144,Bakery,Sunfeast Biscuits 200g,178,3,91.86,111.59,9.11,108.76,2025-11-09,2025-05-30,Nestle,order@nestle.in
+P145,Bakery,Parle G 100g,341,309,33.2,40.82,1.95,39.87,2027-03-01,2025-05-23,Nestle,order@nestle.in
+P146,Beverages,Pepsi 500ml,284,36,98.07,140.17,6.29,139.85,2025-10-12,2025-04-04,Coca Cola India,order@coke.in
+P147,Grocery,Fortune Oil 1L,495,143,29.86,39.4,2.11,37.38,2027-02-23,2025-05-18,Britannia,sales@britannia.co.in
+P148,Frozen Foods,Kwality Walls Ice Cream 500ml,146,70,14.24,18.72,1.84,18.01,2027-07-13,2025-06-08,Britannia,sales@britannia.co.in
+P149,Bakery,Britannia Bread 400g,336,142,86.24,111.34,2.05,111.27,2027-09-07,2025-07-17,ITC,itc.orders@itc.in
+P150,Household,Godrej Air Freshener,383,155,113.03,154.08,1.43,153.53,2025-08-21,2025-06-05,PepsiCo,order@pepsico.com
+P151,Grocery,Fortune Oil 1L,443,385,98.49,141.54,3.6,141.33,2027-08-17,2025-05-03,Amul,orders@amul.coop
+P152,Bakery,Parle G 100g,58,11,117.46,150.0,4.53,148.24,2027-02-01,2025-05-12,ITC,itc.orders@itc.in
+P153,Snacks,Lays Classic 50g,127,73,66.76,99.49,6.54,97.65,2027-07-16,2025-04-14,Britannia,sales@britannia.co.in
+P154,Household,Godrej Air Freshener,272,118,57.61,74.28,1.56,73.6,2026-10-24,2025-07-20,Nestle,order@nestle.in
+P155,Beverages,Pepsi 500ml,276,94,77.47,101.36,3.91,100.72,2026-12-06,2025-04-17,Amul,orders@amul.coop
+P156,Frozen Foods,Kwality Walls Ice Cream 500ml,183,128,37.09,52.37,6.01,47.59,2027-11-30,2025-06-07,Nestle,order@nestle.in
+P157,Beverages,Pepsi 500ml,101,90,24.97,30.39,5.9,25.12,2025-09-10,2025-04-27,Coca Cola India,order@coke.in
+P158,Household,Tide Detergent 1kg,444,282,192.42,250.5,1.35,250.24,2027-03-18,2025-07-10,Coca Cola India,order@coke.in
+P159,Beverages,Coca Cola 1L,307,89,91.38,132.47,8.86,125.85,2026-10-26,2025-06-22,Nestle,order@nestle.in
+P160,Bakery,Sunfeast Biscuits 200g,179,49,11.84,17.23,4.19,17.19,2027-05-25,2025-07-18,ITC,itc.orders@itc.in
+P161,Bakery,Britannia Bread 400g,184,128,64.24,77.49,2.49,76.64,2026-08-14,2025-05-02,ITC,itc.orders@itc.in
+P162,Grocery,Fortune Oil 1L,495,361,184.04,248.95,7.92,245.6,2027-02-28,2025-07-04,Britannia,sales@britannia.co.in
+P163,Household,Tide Detergent 1kg,191,53,53.89,75.66,4.93,70.89,2027-06-02,2025-07-09,Parle,sales@parleproducts.com
+P164,Beverages,Pepsi 500ml,352,24,45.67,68.23,3.84,68.01,2027-05-15,2025-07-09,Parle,sales@parleproducts.com
+P165,Household,Tide Detergent 1kg,373,343,82.37,104.52,5.22,99.91,2026-02-09,2025-06-18,PepsiCo,order@pepsico.com
+P166,Personal Care,Dettol Handwash 200ml,332,102,110.32,161.92,7.9,155.76,2027-10-30,2025-05-28,Britannia,sales@britannia.co.in
+P167,Beverages,Coca Cola 1L,194,85,22.05,29.04,8.45,24.75,2027-04-30,2025-05-06,Parle,sales@parleproducts.com
+P168,Beverages,Pepsi 500ml,227,19,51.07,65.34,4.95,62.84,2026-05-20,2025-05-10,Parle,sales@parleproducts.com
+P169,Household,Godrej Air Freshener,187,157,163.01,207.21,8.68,202.84,2026-03-05,2025-07-18,PepsiCo,order@pepsico.com
+P170,Bakery,Sunfeast Biscuits 200g,371,114,188.55,252.03,6.39,247.99,2027-06-22,2025-04-06,PepsiCo,order@pepsico.com
+P171,Beverages,Pepsi 500ml,130,108,198.98,267.88,7.42,262.66,2025-11-10,2025-05-26,Parle,sales@parleproducts.com
+P172,Grocery,Maggie Noodles 70g,218,129,177.29,262.05,2.68,261.43,2025-10-27,2025-06-29,Britannia,sales@britannia.co.in
+P173,Grocery,Fortune Oil 1L,94,2,42.78,59.58,5.79,53.84,2027-09-12,2025-05-04,ITC,itc.orders@itc.in
+P174,Personal Care,Dove Soap 75g,271,65,140.38,180.63,6.01,176.53,2027-12-17,2025-05-09,PepsiCo,order@pepsico.com
+P175,Beverages,Pepsi 500ml,328,181,188.02,264.14,8.65,259.29,2025-10-15,2025-05-15,ITC,itc.orders@itc.in
+P176,Bakery,Britannia Bread 400g,76,18,55.9,78.46,9.72,69.49,2027-04-09,2025-05-24,Nestle,order@nestle.in
+P177,Bakery,Sunfeast Biscuits 200g,412,114,156.41,223.19,5.44,222.51,2027-04-24,2025-06-01,Parle,sales@parleproducts.com
+P178,Personal Care,Dove Soap 75g,320,181,118.82,174.52,8.45,174.21,2026-03-07,2025-04-07,Nestle,order@nestle.in
+P179,Bakery,Sunfeast Biscuits 200g,473,320,141.26,191.67,7.05,190.91,2025-10-26,2025-04-10,Coca Cola India,order@coke.in
+P180,Household,Tide Detergent 1kg,355,181,151.98,198.73,9.51,190.38,2026-07-11,2025-05-14,PepsiCo,order@pepsico.com
+P181,Grocery,Maggie Noodles 70g,408,235,56.81,81.51,5.0,76.74,2026-02-22,2025-04-10,Hindustan Unilever,orders@hul.com
+P182,Bakery,Sunfeast Biscuits 200g,324,273,125.12,175.33,2.69,174.69,2027-09-02,2025-05-23,Britannia,sales@britannia.co.in
+P183,Frozen Foods,Kwality Walls Ice Cream 500ml,200,161,75.85,110.88,9.18,104.48,2027-12-26,2025-04-30,Coca Cola India,order@coke.in
+P184,Beverages,Pepsi 500ml,209,92,149.28,195.84,3.72,193.29,2025-11-13,2025-05-08,Britannia,sales@britannia.co.in
+P185,Frozen Foods,Kwality Walls Ice Cream 500ml,104,4,125.77,159.09,5.09,157.49,2026-10-14,2025-06-18,Nestle,order@nestle.in
+P186,Personal Care,Dove Soap 75g,449,95,139.47,173.56,4.55,172.11,2027-12-01,2025-07-10,ITC,itc.orders@itc.in
+P187,Household,Godrej Air Freshener,358,307,152.16,184.49,4.99,181.99,2026-11-06,2025-07-20,Nestle,order@nestle.in
+P188,Grocery,Fortune Oil 1L,217,170,190.52,276.34,7.93,268.98,2027-01-11,2025-06-02,Nestle,order@nestle.in
+P189,Beverages,Coca Cola 1L,341,93,135.71,167.52,4.42,165.71,2027-08-27,2025-06-22,Britannia,sales@britannia.co.in
+P190,Bakery,Britannia Bread 400g,90,12,195.68,244.18,1.37,243.84,2027-03-18,2025-05-02,Parle,sales@parleproducts.com
+P191,Grocery,Fortune Oil 1L,261,161,61.52,78.98,3.85,78.93,2027-05-19,2025-04-30,PepsiCo,order@pepsico.com
+P192,Bakery,Parle G 100g,274,98,28.74,41.99,1.15,40.92,2027-02-12,2025-06-20,PepsiCo,order@pepsico.com
+P193,Beverages,Pepsi 500ml,385,254,146.95,210.64,3.44,209.57,2027-11-09,2025-04-26,PepsiCo,order@pepsico.com
+P194,Beverages,Pepsi 500ml,405,245,95.91,128.8,2.45,127.1,2026-06-22,2025-05-21,Hindustan Unilever,orders@hul.com
+P195,Grocery,Maggie Noodles 70g,380,302,60.02,79.2,5.8,75.56,2027-03-02,2025-04-26,Britannia,sales@britannia.co.in
+P196,Beverages,Pepsi 500ml,227,171,177.09,252.95,9.23,249.15,2027-01-27,2025-05-15,Nestle,order@nestle.in
+P197,Bakery,Sunfeast Biscuits 200g,189,98,97.03,129.01,7.49,124.08,2026-07-11,2025-04-16,Amul,orders@amul.coop
+P198,Dairy,Amul Butter 500g,427,289,99.86,139.08,6.37,137.87,2027-11-16,2025-07-05,ITC,itc.orders@itc.in
+P199,Beverages,Coca Cola 1L,120,75,113.48,155.58,8.93,149.82,2026-05-24,2025-04-26,Parle,sales@parleproducts.com
+P200,Grocery,Fortune Oil 1L,79,42,88.48,119.08,2.14,117.62,2027-02-24,2025-04-26,Nestle,order@nestle.in

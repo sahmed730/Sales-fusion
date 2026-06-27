@@ -144,7 +144,7 @@ Desktop.ini
 
 # Sales-Fusion Specific
 *.pkl
-data/*.csv
-reports/
+# Temporarily allowing data and reports for Cloud Demo
+# data/*.csv
+# reports/
 !data/data_dictionary.md
-

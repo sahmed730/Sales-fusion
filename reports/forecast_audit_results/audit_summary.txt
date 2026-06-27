@@ -1,0 +1,26 @@
+PROPHET METRICS:
+{'MAE': 22810737.58187416, 'RMSE': np.float64(32772532.652537853), 'MAPE': np.float64(62.046936085692614)}
+
+XGBOOST METRICS:
+{'MAE': 23.829147338867188, 'RMSE': np.float64(42.399715091539825), 'R2': -0.13163673877716064, 'CV_R2_Mean': np.float64(0.17712860107421874)}
+
+ANOMALY SUMMARY:
+        region  count
+0  North India      2
+1  South India      7
+2   West India      3
+
+DETAILED ANOMALIES:
+    month_year       region  sales_amount  expected_revenue  anomaly_score
+3      2021-01  South India   114887775.0      2.880756e+08      -0.012753
+48     2021-10  South India   458753945.0      6.871381e+08      -0.091906
+107    2022-10  North India   664137060.0      4.617502e+08      -0.027470
+108    2022-10  South India   947398360.0      6.871381e+08      -0.172599
+168    2023-10  South India   460172695.0      6.871381e+08      -0.091061
+169    2023-10   West India   283189400.0      4.653787e+08      -0.040171
+172    2023-11  North India   513401995.0      3.615859e+08      -0.002750
+173    2023-11  South India   760081545.0      4.822302e+08      -0.127615
+174    2023-11   West India   580219145.0      3.739222e+08      -0.020614
+208    2024-06  South India   569847385.0      3.745011e+08      -0.007010
+228    2024-10  South India   834915700.0      6.871381e+08      -0.123440
+229    2024-10   West India   693684915.0      4.653787e+08      -0.054794

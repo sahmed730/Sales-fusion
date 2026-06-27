@@ -1,0 +1,19 @@
+product_id,product_name,category,launch_date,cost_price,selling_price,profit_margin,warranty_period
+P001,FusionBook Air,Laptops,2021-01-15,45000,60000,0.25,12
+P002,FusionBook Pro,Laptops,2021-06-10,70000,95000,0.26,24
+P003,FusionBook Ultra,Laptops,2022-03-20,100000,140000,0.28,36
+P004,FusionPhone Lite,Smartphones,2021-02-01,10000,15000,0.33,12
+P005,FusionPhone X,Smartphones,2021-08-15,25000,35000,0.28,12
+P006,FusionPhone Ultra,Smartphones,2022-10-05,50000,75000,0.33,24
+P007,FusionTab Mini,Tablets,2021-05-12,15000,22000,0.31,12
+P008,FusionTab Pro,Tablets,2021-11-20,35000,50000,0.3,12
+P009,Fusion Earbuds,Accessories,2021-01-01,1500,3000,0.5,6
+P010,Fusion Charger,Accessories,2021-01-01,500,1500,0.66,6
+P011,Fusion Case,Accessories,2021-02-15,200,800,0.75,3
+P012,Fusion Keyboard,Accessories,2021-04-10,1200,2500,0.52,12
+P013,Fusion Mouse,Accessories,2021-04-10,600,1200,0.5,12
+P014,FusionView 24,Monitors,2021-07-01,8000,12000,0.33,36
+P015,FusionView 27,Monitors,2021-07-01,12000,18000,0.33,36
+P016,FusionView 32,Monitors,2022-01-10,20000,32000,0.37,36
+P017,Fusion Watch Lite,Wearables,2021-09-15,2500,5000,0.5,12
+P018,Fusion Watch Pro,Wearables,2022-02-20,7000,12000,0.41,12
