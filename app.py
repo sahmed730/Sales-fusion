@@ -10,20 +10,19 @@ import os
 # ═══════════════════════════════════════════════════════════════
 st.set_page_config(
     page_title="FusionMart Executive Command Center",
-    page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# ── Color Palette (matched to reference images) ──────────────
-TEAL       = "#2a6f6f"
-DARK_TEAL  = "#1a4a4a"
-ORANGE     = "#e8883e"
-GREEN      = "#4caf50"
-SAGE       = "#c8d6c0"
-RED_SOFT   = "#e07b54"
-NAVY       = "#0f172a"
-INDIGO     = "#1e1b4b"
+# ── Color Palette (Black & White Theme) ──────────────
+TEAL       = "#ffffff"
+DARK_TEAL  = "#e2e8f0"
+ORANGE     = "#94a3b8"
+GREEN      = "#ffffff"
+SAGE       = "#64748b"
+RED_SOFT   = "#475569"
+NAVY       = "#000000"
+INDIGO     = "#000000"
 
 # ── CSS ───────────────────────────────────────────────────────
 st.markdown("""
@@ -31,11 +30,11 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 .stApp {
-    background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    background: #000000;
     color: #e2e8f0;
     font-family: 'Inter', sans-serif;
 }
-h1, h2, h3, h4 { color: #f1f5f9; font-weight: 700; letter-spacing: -0.03em; }
+h1, h2, h3, h4 { color: #ffffff; font-weight: 700; letter-spacing: -0.03em; }
 
 /* KPI card styling */
 .kpi-card {
@@ -48,17 +47,17 @@ h1, h2, h3, h4 { color: #f1f5f9; font-weight: 700; letter-spacing: -0.03em; }
     min-height: 140px;
     display: flex; flex-direction: column; justify-content: center;
 }
-.kpi-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.kpi-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(255,255,255,0.1); }
 .kpi-label { font-size: 0.85rem; font-weight: 500; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
 .kpi-value { font-size: 2rem; font-weight: 800; }
 
 /* Tab styling */
 .stTabs [data-baseweb="tab-list"] { gap: 4px; background: rgba(255,255,255,0.03); border-radius: 12px; padding: 4px; }
 .stTabs [data-baseweb="tab"] { border-radius: 8px; color: #94a3b8; font-weight: 600; }
-.stTabs [aria-selected="true"] { background: rgba(42,111,111,0.3) !important; color: #f1f5f9 !important; }
+.stTabs [aria-selected="true"] { background: rgba(255,255,255,0.1) !important; color: #ffffff !important; }
 
 /* Sidebar */
-section[data-testid="stSidebar"] { background-color: #0f172a !important; }
+section[data-testid="stSidebar"] { background-color: #000000 !important; }
 
 /* Hide Streamlit branding */
 #MainMenu { visibility: hidden; }
@@ -112,7 +111,7 @@ if not customers.empty and "customer_segment" in customers.columns:
 # ── Helper: standard Plotly layout ────────────────────────────
 def base_layout(fig, title="", height=500):
     fig.update_layout(
-        title=dict(text=title, font=dict(size=18, color="#f1f5f9", family="Inter"), x=0.5, xanchor="center"),
+        title=dict(text=title, font=dict(size=18, color="#ffffff", family="Inter"), x=0.5, xanchor="center"),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         font=dict(family="Inter", color="#cbd5e1", size=12),
@@ -128,7 +127,7 @@ def base_layout(fig, title="", height=500):
 # ═══════════════════════════════════════════════════════════════
 # HEADER
 # ═══════════════════════════════════════════════════════════════
-st.markdown("<h1 style='text-align:center; font-size:2.4rem; margin-bottom:0;'>📈 FusionMart Executive Command Center</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; font-size:2.4rem; margin-bottom:0;'>FusionMart Executive Command Center</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; color:#94a3b8; font-size:1rem; margin-top:4px;'>Comprehensive Data Analysis Dashboard &nbsp;•&nbsp; 2021–2024</p>", unsafe_allow_html=True)
 st.markdown("---")
 
@@ -137,14 +136,14 @@ st.markdown("---")
 # TABS
 # ═══════════════════════════════════════════════════════════════
 tabs = st.tabs([
-    "📊 Executive Summary",
-    "📈 Time-Series",
-    "🗺️ Regional",
-    "📦 Products",
-    "👥 Customers",
-    "💼 Channels & Sales",
-    "🏭 Inventory",
-    "🎯 Campaigns",
+    "Executive Summary",
+    "Time-Series",
+    "Regional",
+    "Products",
+    "Customers",
+    "Channels & Sales",
+    "Inventory",
+    "Campaigns",
 ])
 
 
@@ -163,16 +162,16 @@ with tabs[0]:
 
     # Row 1
     kpi_data_r1 = [
-        ("Total Revenue",      f"₹{total_rev/CR:,.2f} Cr",      "#2a6f6f"),
-        ("Total Profit",       f"₹{total_profit/CR:,.2f} Cr",    "#4caf50"),
-        ("Avg Profit Margin",  f"{margin_pct:.2f}%",             "#e8883e"),
-        ("Total Orders",       f"{total_orders:,}",               "#2196f3"),
+        ("Total Revenue",      f"₹{total_rev/CR:,.2f} Cr",      TEAL),
+        ("Total Profit",       f"₹{total_profit/CR:,.2f} Cr",    GREEN),
+        ("Avg Profit Margin",  f"{margin_pct:.2f}%",             ORANGE),
+        ("Total Orders",       f"{total_orders:,}",               SAGE),
     ]
     kpi_data_r2 = [
-        ("Avg Order Value",    f"₹{aov/1e3:,.1f}K",             "#e8883e"),
-        ("Total Customers",    f"{total_customers:,}",            "#2a6f6f"),
-        ("Units Sold",         f"{total_units:,}",                "#607d8b"),
-        ("Salespersons",       f"{total_sp}",                     "#e07b54"),
+        ("Avg Order Value",    f"₹{aov/1e3:,.1f}K",             ORANGE),
+        ("Total Customers",    f"{total_customers:,}",            TEAL),
+        ("Units Sold",         f"{total_units:,}",                SAGE),
+        ("Salespersons",       f"{total_sp}",                     RED_SOFT),
     ]
 
     cols = st.columns(4)
@@ -223,7 +222,7 @@ with tabs[1]:
         name="Revenue", mode="lines+markers",
         line=dict(color=TEAL, width=3),
         marker=dict(size=5, color=TEAL),
-        fill="tozeroy", fillcolor="rgba(42,111,111,0.15)",
+        fill="tozeroy", fillcolor="rgba(255,255,255,0.15)",
     ), secondary_y=False)
 
     # Profit dashed line
@@ -239,9 +238,9 @@ with tabs[1]:
         x=monthly.loc[peak_idx, "order_date"],
         y=monthly.loc[peak_idx, "revenue_cr"],
         text=f"Peak: {monthly.loc[peak_idx, 'order_date'].strftime('%Y-%m-%d')}<br>₹{monthly.loc[peak_idx, 'revenue_cr']:.1f} Cr",
-        showarrow=True, arrowhead=2, arrowcolor="#4caf50", arrowwidth=2,
-        font=dict(size=11, color="#4caf50", family="Inter"),
-        bgcolor="rgba(0,0,0,0.6)", bordercolor="#4caf50",
+        showarrow=True, arrowhead=2, arrowcolor="#ffffff", arrowwidth=2,
+        font=dict(size=11, color="#ffffff", family="Inter"),
+        bgcolor="rgba(0,0,0,0.6)", bordercolor="#ffffff",
         ax=0, ay=-50
     )
     # Trough annotation
@@ -249,9 +248,9 @@ with tabs[1]:
         x=monthly.loc[trough_idx, "order_date"],
         y=monthly.loc[trough_idx, "revenue_cr"],
         text=f"Trough: {monthly.loc[trough_idx, 'order_date'].strftime('%Y-%m-%d')}<br>₹{monthly.loc[trough_idx, 'revenue_cr']:.1f} Cr",
-        showarrow=True, arrowhead=2, arrowcolor="#e07b54", arrowwidth=2,
-        font=dict(size=11, color="#e07b54", family="Inter"),
-        bgcolor="rgba(0,0,0,0.6)", bordercolor="#e07b54",
+        showarrow=True, arrowhead=2, arrowcolor="#aaaaaa", arrowwidth=2,
+        font=dict(size=11, color="#aaaaaa", family="Inter"),
+        bgcolor="rgba(0,0,0,0.6)", bordercolor="#aaaaaa",
         ax=40, ay=40
     )
 
@@ -543,9 +542,9 @@ with tabs[5]:
         textfont=dict(size=11, color="#f1f5f9"),
     ))
     # Org average reference line
-    fig_sp.add_vline(x=org_avg, line_dash="dash", line_color="#e07b54", line_width=2,
+    fig_sp.add_vline(x=org_avg, line_dash="dash", line_color="#aaaaaa", line_width=2,
                      annotation_text=f"Org avg: ₹{org_avg:,.1f} Cr",
-                     annotation_font_color="#e07b54", annotation_font_size=11)
+                     annotation_font_color="#aaaaaa", annotation_font_size=11)
 
     fig_sp.update_layout(barmode="group")
     base_layout(fig_sp, "Top 10 Salesperson Leaderboard — Revenue & Profit", height=550)
@@ -669,9 +668,9 @@ with tabs[7]:
         ))
 
         # 100% threshold line
-        fig_camp.add_vline(x=100, line_dash="dash", line_color="#e07b54", line_width=2,
+        fig_camp.add_vline(x=100, line_dash="dash", line_color="#aaaaaa", line_width=2,
                            annotation_text="100% lift threshold",
-                           annotation_font_color="#e07b54", annotation_font_size=10,
+                           annotation_font_color="#aaaaaa", annotation_font_size=10,
                            annotation_position="top")
 
         # Legend annotations
