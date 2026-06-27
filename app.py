@@ -71,7 +71,7 @@ sales_df = load_data()
 
 # Sidebar Navigation
 st.sidebar.header("Navigation")
-page = st.sidebar.radio("Go to", ["Executive Dashboard", "AI Insights & Narratives"])
+page = st.sidebar.radio("Go to", ["Executive Dashboard", "AI Insights & Narratives", "ML Models & Methodology"])
 
 if page == "Executive Dashboard":
     # Top KPIs
@@ -118,3 +118,37 @@ elif page == "AI Insights & Narratives":
             st.markdown(narrative)
     except FileNotFoundError:
         st.info("Run the Phase 5 narrative generation script.")
+
+elif page == "ML Models & Methodology":
+    st.header("⚙️ Machine Learning Models & Methodology")
+    st.markdown("*A transparent view into the AI engines driving FusionMart's analytics.*")
+    
+    st.markdown("---")
+    st.subheader("1. Revenue Forecasting (Prophet)")
+    st.markdown("**How it works**: Prophet learns the 'normal' patterns of our business (seasonality) and combines it with explicitly provided 'holidays' (Marketing Campaigns) to draw a highly accurate trendline of future sales.")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if os.path.exists("reports/forecast_results/revenue_forecast_plot.png"):
+            st.image("reports/forecast_results/revenue_forecast_plot.png", caption="Prophet 90-Day Forecast Plot", use_container_width=True)
+        if os.path.exists("reports/forecast_audit_results/prophet_actual_vs_pred.png"):
+            st.image("reports/forecast_audit_results/prophet_actual_vs_pred.png", caption="Actual vs Predicted Validation", use_container_width=True)
+    with col2:
+        if os.path.exists("reports/forecast_results/revenue_forecast_components.png"):
+            st.image("reports/forecast_results/revenue_forecast_components.png", caption="Trend & Seasonality Components", use_container_width=True)
+        if os.path.exists("reports/forecast_audit_results/prophet_residuals.png"):
+            st.image("reports/forecast_audit_results/prophet_residuals.png", caption="Residuals Analysis", use_container_width=True)
+
+    st.markdown("---")
+    st.subheader("2. Demand Prediction (XGBoost)")
+    st.markdown("**How it works**: XGBoost builds hundreds of small 'decision trees' (experts). Each tree learns from the mistakes of the previous one. It aggregates this knowledge to predict exact item-level demand.")
+    
+    if os.path.exists("reports/forecast_audit_results/xgboost_feature_importance.png"):
+        st.image("reports/forecast_audit_results/xgboost_feature_importance.png", caption="XGBoost Feature Importance (What drives demand?)", use_container_width=True)
+
+    st.markdown("---")
+    st.subheader("3. Regional Anomaly Detection (Isolation Forest)")
+    st.markdown("**How it works**: The algorithm slices up our data to find points that separate easily from the cluster. Anomalous data points (like a sudden drop in revenue) get isolated almost instantly.")
+    
+    if os.path.exists("reports/forecast_audit_results/regional_anomaly_plot.png"):
+        st.image("reports/forecast_audit_results/regional_anomaly_plot.png", caption="Isolation Forest Anomalies (Red dots indicate potential issues)", use_container_width=True)
