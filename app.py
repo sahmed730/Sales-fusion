@@ -10,7 +10,9 @@ import glob
 # ==========================================
 st.set_page_config(page_title="FusionMart Analytics Dashboard", page_icon="📈", layout="wide", initial_sidebar_state="expanded")
 
-# Custom CSS for Premium Dark Mode & Glassmorphism
+# Premium Color Palette
+COLORS = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#3b82f6', '#8b5cf6', '#14b8a6', '#f43f5e']
+
 st.markdown("""
 <style>
     /* Main Background */
@@ -26,26 +28,52 @@ st.markdown("""
     }
     /* Metric Cards Glassmorphism */
     div[data-testid="metric-container"] {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
     div[data-testid="metric-container"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(99, 102, 241, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(99, 102, 241, 0.5);
     }
+    /* Sidebar */
     section[data-testid="stSidebar"] {
         background-color: #0f172a !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    /* Headers in Metric */
+    div[data-testid="stMetricLabel"] > div {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    div[data-testid="stMetricValue"] > div {
+        color: #f8fafc;
+        font-size: 2.2rem;
+        font-weight: 700;
     }
 </style>
 """, unsafe_allow_html=True)
+
+# Helper function to style Plotly charts consistently
+def apply_premium_layout(fig):
+    fig.update_layout(
+        plot_bgcolor="rgba(0,0,0,0)", 
+        paper_bgcolor="rgba(0,0,0,0)",
+        font=dict(family="Inter", color="#cbd5e1"),
+        margin=dict(l=20, r=20, t=40, b=20),
+        xaxis=dict(showgrid=False, zeroline=False),
+        yaxis=dict(gridcolor="rgba(255,255,255,0.05)", zeroline=False),
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+    return fig
 
 # ==========================================
 # DATA LOADING
@@ -54,10 +82,6 @@ st.markdown("""
 def load_data():
     try:
         sales = pd.read_csv("data/sales.csv", parse_dates=['order_date'])
-        # If profit isn't strictly there, calculate it if cost is available, or mock it if missing for demo
-        if 'profit' not in sales.columns and 'sales_amount' in sales.columns:
-            # Fallback estimation based on report: ~15.42% margin
-            sales['profit'] = sales['sales_amount'] * 0.1542
         
         # Load customers
         customers = pd.read_csv("data/customers.csv") if os.path.exists("data/customers.csv") else pd.DataFrame()
@@ -95,15 +119,14 @@ show_static = st.sidebar.checkbox("📸 Show Static Reference Images", value=Fal
 if show_static:
     st.sidebar.info("Static images from the original Markdown report will be rendered where applicable.")
 
-# Helper to show static images
-def render_static_images(keywords):
+def render_static_images():
     if not show_static: return
     img_dir = "img analysis"
     if not os.path.exists(img_dir): return
     all_imgs = glob.glob(f"{img_dir}/*.jpg")
     
-    st.markdown("##### 📸 Reference Images")
-    # For now, display all images to make sure we don't miss them, or map them roughly
+    st.markdown("<br><hr>", unsafe_allow_html=True)
+    st.markdown("### 📸 Static Reference Images")
     cols = st.columns(3)
     idx = 0
     for img in all_imgs:
@@ -112,7 +135,8 @@ def render_static_images(keywords):
 
 
 st.title("🚀 FusionMart Analytics Dashboard")
-st.markdown("*Comprehensive Data Analysis (2021-2024)*")
+st.markdown("<span style='color:#94a3b8;'>*Comprehensive Data Analysis (2021-2024)*</span>", unsafe_allow_html=True)
+st.markdown("---")
 
 if sales_df.empty:
     st.error("⚠️ Data not found! Please ensure data/sales.csv exists.")
@@ -129,6 +153,7 @@ qty_col = 'quantity'
 if page == "1. Executive Summary":
     st.header("Executive Summary")
     st.markdown("> **BLUF:** FusionMart generated significant revenue with strong institutional traction, but faces margin pressures in its core laptop category and regional imbalances.")
+    st.markdown("<br>", unsafe_allow_html=True)
     
     total_rev = sales_df[rev_col].sum()
     total_profit = sales_df[profit_col].sum()
@@ -141,15 +166,16 @@ if page == "1. Executive Summary":
     c1.metric("Total Revenue", f"₹ {total_rev:,.0f}")
     c2.metric("Total Profit", f"₹ {total_profit:,.0f}")
     c3.metric("Blended Margin", f"{margin:.2f}%")
-    c4.metric("Avg Order Value (AOV)", f"₹ {aov:,.0f}")
+    c4.metric("Avg Order Value", f"₹ {aov:,.0f}")
     
+    st.markdown("<br>", unsafe_allow_html=True)
     c5, c6, c7, c8 = st.columns(4)
     c5.metric("Total Orders", f"{total_orders:,}")
     c6.metric("Distinct Customers", f"{total_customers:,}")
     c7.metric("Total Units Sold", f"{sales_df[qty_col].sum():,}")
-    c8.metric("Salespersons", f"{sales_df['salesperson_id'].nunique() if 'salesperson_id' in sales_df.columns else 0}")
+    c8.metric("Active Salespersons", f"{sales_df['salesperson_id'].nunique() if 'salesperson_id' in sales_df.columns else 0}")
     
-    render_static_images(["img43", "img47"])
+    render_static_images()
 
 
 # ==========================================
@@ -159,16 +185,29 @@ elif page == "2. Time-Series Performance":
     st.header("Time-Series & Growth Trends")
     st.markdown("The monthly revenue trend shows FusionMart operating in a clear seasonal pattern with a single dominant peak each calendar year (Diwali season).")
     
-    # Monthly aggregation
-    df_time = sales_df.set_index('order_date').resample('M').agg({rev_col: 'sum', profit_col: 'sum'}).reset_index()
+    # Monthly aggregation (use 'ME' instead of 'M' to avoid ValueError in Pandas > 2.2)
+    df_time = sales_df.set_index('order_date').resample('ME').agg({rev_col: 'sum', profit_col: 'sum'}).reset_index()
     
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df_time['order_date'], y=df_time[rev_col], name='Revenue', line=dict(color='#4F46E5', width=3)))
-    fig.add_trace(go.Bar(x=df_time['order_date'], y=df_time[profit_col], name='Profit', marker_color='rgba(16, 185, 129, 0.6)'))
-    fig.update_layout(template="plotly_dark", title="Monthly Revenue & Profit", plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)", hovermode="x unified")
+    # Revenue Area with Gradient
+    fig.add_trace(go.Scatter(
+        x=df_time['order_date'], y=df_time[rev_col], 
+        name='Revenue', 
+        line=dict(color=COLORS[0], width=4),
+        fill='tozeroy',
+        fillcolor='rgba(99, 102, 241, 0.2)'
+    ))
+    # Profit Line
+    fig.add_trace(go.Scatter(
+        x=df_time['order_date'], y=df_time[profit_col], 
+        name='Profit', 
+        line=dict(color=COLORS[2], width=3, dash='dot')
+    ))
+    fig.update_layout(title="Monthly Revenue & Profit Momentum")
+    apply_premium_layout(fig)
     st.plotly_chart(fig, use_container_width=True)
     
-    render_static_images(["img51"])
+    render_static_images()
 
 
 # ==========================================
@@ -184,13 +223,19 @@ elif page == "3. Regional Analysis":
         
         c1, c2 = st.columns([2, 1])
         with c1:
-            fig = px.bar(reg_df, x='region', y=rev_col, color='region', title="Revenue by Region", template="plotly_dark", color_discrete_sequence=px.colors.qualitative.Pastel)
-            fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+            fig = px.bar(
+                reg_df, x='region', y=rev_col, color='region', 
+                title="Revenue Dominance by Region", 
+                color_discrete_sequence=COLORS,
+                text_auto='.2s'
+            )
+            fig.update_traces(textposition='outside', marker_line_width=0, opacity=0.9)
+            apply_premium_layout(fig)
             st.plotly_chart(fig, use_container_width=True)
         with c2:
             st.dataframe(reg_df.style.format({rev_col: '₹ {:,.0f}', profit_col: '₹ {:,.0f}', 'Margin %': '{:.2f}%'}))
             
-    render_static_images(["img58"])
+    render_static_images()
 
 
 # ==========================================
@@ -206,15 +251,31 @@ elif page == "4. Product & Category":
         
         c1, c2 = st.columns(2)
         with c1:
-            fig = px.pie(cat_df, values=rev_col, names='category', title="Revenue Share by Category", template="plotly_dark", hole=0.4)
-            fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+            # Premium Donut Chart
+            fig = go.Figure(data=[go.Pie(
+                labels=cat_df['category'], 
+                values=cat_df[rev_col], 
+                hole=.6, 
+                marker_colors=COLORS,
+                textinfo='percent+label'
+            )])
+            fig.update_layout(title="Revenue Composition")
+            apply_premium_layout(fig)
+            # Remove legend for cleaner look on donut
+            fig.update_layout(showlegend=False)
             st.plotly_chart(fig, use_container_width=True)
+            
         with c2:
-            fig2 = px.bar(cat_df.sort_values('Margin %'), x='Margin %', y='category', orientation='h', title="Profit Margin % by Category", template="plotly_dark")
-            fig2.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+            cat_df = cat_df.sort_values('Margin %')
+            fig2 = px.bar(
+                cat_df, x='Margin %', y='category', orientation='h', 
+                title="Profit Margin % by Category",
+                color='Margin %', color_continuous_scale=['#f43f5e', '#f59e0b', '#10b981']
+            )
+            apply_premium_layout(fig2)
             st.plotly_chart(fig2, use_container_width=True)
             
-    render_static_images(["img59", "img66"])
+    render_static_images()
 
 
 # ==========================================
@@ -226,13 +287,19 @@ elif page == "5. Customer Analytics":
     
     if 'customer_segment' in sales_df.columns:
         seg_df = sales_df.groupby('customer_segment').agg({rev_col: 'sum', profit_col: 'sum'}).reset_index()
-        fig = px.treemap(seg_df, path=['customer_segment'], values=rev_col, title="Revenue by Customer Segment", template="plotly_dark")
-        fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+        fig = px.treemap(
+            seg_df, path=['customer_segment'], values=rev_col, 
+            color=rev_col, color_continuous_scale='Purpor',
+            title="Revenue Density by Customer Segment"
+        )
+        fig.update_traces(root_color="rgba(0,0,0,0)", textinfo="label+value+percent parent")
+        apply_premium_layout(fig)
+        fig.update_layout(margin=dict(t=50, l=0, r=0, b=0))
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("Customer Segment data not detected in merged CSV.")
         
-    render_static_images(["img70", "img77"])
+    render_static_images()
 
 
 # ==========================================
@@ -245,18 +312,28 @@ elif page == "6. Salesperson & Channels":
     with c1:
         if 'sales_channel' in sales_df.columns:
             ch_df = sales_df.groupby('sales_channel').agg({rev_col: 'sum'}).reset_index()
-            fig = px.pie(ch_df, values=rev_col, names='sales_channel', title="Revenue by Channel", template="plotly_dark", hole=0.3)
-            fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+            fig = px.pie(
+                ch_df, values=rev_col, names='sales_channel', 
+                title="Revenue by Channel", hole=0.5,
+                color_discrete_sequence=COLORS
+            )
+            fig.update_traces(textinfo='percent+label')
+            apply_premium_layout(fig)
+            fig.update_layout(showlegend=False)
             st.plotly_chart(fig, use_container_width=True)
             
     with c2:
         if 'salesperson_id' in sales_df.columns:
             sp_df = sales_df.groupby('salesperson_id').agg({rev_col: 'sum'}).reset_index().sort_values(rev_col, ascending=False).head(10)
-            fig2 = px.bar(sp_df, x='salesperson_id', y=rev_col, title="Top 10 Salespersons", template="plotly_dark")
-            fig2.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+            fig2 = px.bar(
+                sp_df, x='salesperson_id', y=rev_col, 
+                title="Top 10 Salespersons", 
+                color=rev_col, color_continuous_scale='Teal'
+            )
+            apply_premium_layout(fig2)
             st.plotly_chart(fig2, use_container_width=True)
 
-    render_static_images(["img81", "img88", "img95"])
+    render_static_images()
 
 
 # ==========================================
@@ -267,12 +344,11 @@ elif page == "7. Strategic Action Plan":
     st.markdown("Based on the 4-year diagnostic, here are the prioritized recommendations:")
     
     actions = [
-        {"Priority": "High", "Initiative": "Attach-Rate Program", "Impact": "+₹70-100 Cr/yr", "Description": "Bundle Accessories + Smartphones into every FusionBook transaction to lift blended margin."},
-        {"Priority": "High", "Initiative": "East & Central India Expansion", "Impact": "+₹400-600 Cr rev", "Description": "Deploy 8 additional salespeople + localized campaigns."},
-        {"Priority": "Medium", "Initiative": "Campaign Calendar Expansion", "Impact": "+₹300-500 Cr rev", "Description": "Target 14-16 campaigns/year with 2 new festive windows (Eid, Onam/Pongal)."},
-        {"Priority": "Medium", "Initiative": "Key-Account Management", "Impact": "Revenue Protection", "Description": "Dedicated program for top 100 institutional customers to mitigate key-person risk."}
+        {"Priority": "🔴 High", "Initiative": "Attach-Rate Program", "Impact": "+₹70-100 Cr/yr", "Description": "Bundle Accessories + Smartphones into every FusionBook transaction to lift blended margin."},
+        {"Priority": "🔴 High", "Initiative": "East & Central India Expansion", "Impact": "+₹400-600 Cr rev", "Description": "Deploy 8 additional salespeople + localized campaigns."},
+        {"Priority": "🟡 Medium", "Initiative": "Campaign Calendar Expansion", "Impact": "+₹300-500 Cr rev", "Description": "Target 14-16 campaigns/year with 2 new festive windows (Eid, Onam/Pongal)."},
+        {"Priority": "🟡 Medium", "Initiative": "Key-Account Management", "Impact": "Revenue Protection", "Description": "Dedicated program for top 100 institutional customers to mitigate key-person risk."}
     ]
     
     st.table(pd.DataFrame(actions))
-    
     st.info("The data and findings in this dashboard are strictly confidential to FusionMart Pvt. Ltd.")
