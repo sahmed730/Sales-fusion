@@ -52,9 +52,11 @@ h1, h2, h3, h4 { color: #ffffff; font-weight: 700; letter-spacing: -0.03em; }
 .kpi-value { font-size: 2rem; font-weight: 800; }
 
 /* Tab styling */
-.stTabs [data-baseweb="tab-list"] { gap: 4px; background: rgba(255,255,255,0.03); border-radius: 12px; padding: 4px; }
-.stTabs [data-baseweb="tab"] { border-radius: 8px; color: #94a3b8; font-weight: 600; }
+.stTabs [data-baseweb="tab-list"] { gap: 8px; background: rgba(255,255,255,0.03); border-radius: 12px; padding: 8px; }
+.stTabs [data-baseweb="tab"] { border-radius: 8px; color: #94a3b8; font-weight: 600; padding: 10px 16px !important; margin: 0 2px; }
 .stTabs [aria-selected="true"] { background: rgba(255,255,255,0.1) !important; color: #ffffff !important; }
+.stTabs [data-baseweb="tab-highlight"] { display: none !important; }
+.stTabs [data-baseweb="tab-border"] { display: none !important; }
 
 /* Sidebar */
 section[data-testid="stSidebar"] { background-color: #000000 !important; }
