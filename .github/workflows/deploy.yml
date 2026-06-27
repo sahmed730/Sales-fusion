@@ -1,0 +1,32 @@
+name: Deploy to Cloud
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+          
+      # Stub for Streamlit Community Cloud or AWS deployment
+      - name: Deploy Streamlit App
+        run: |
+          echo "Deploying to Streamlit Cloud..."
+          echo "Streamlit Cloud automatically watches the main branch."
+          echo "If deploying to AWS, insert AWS credentials and Elastic Beanstalk / ECS steps here."
+          
+      - name: Deploy API
+        run: |
+          echo "Deploying FastAPI backend to Cloud Run / EC2..."
+          echo "Insert specific cloud provider deployment CLI commands here."

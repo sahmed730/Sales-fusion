@@ -1,0 +1,8 @@
+stages:
+  train:
+    cmd: python scripts/final_model_train.py
+    deps:
+      - data/processed/sales_processed.parquet
+      - scripts/final_model_train.py
+    outs:
+      - models/best_forecast_model.pkl

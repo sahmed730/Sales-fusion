@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionMart AI Executive Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f172a;
+            --bg-card: #1e293b;
+            --accent-teal: #2dd4bf;
+            --accent-rose: #fb7185;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Slicers --- */
+        header {
+            padding: 1.5rem 2rem;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .title-area h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .title-area span {
+            color: var(--accent-teal);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        .slicers {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .slicer {
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slicer:hover {
+            border-color: var(--accent-teal);
+            color: var(--text-main);
+        }
+
+        /* --- AI Ticker --- */
+        .ai-ticker {
+            background: rgba(45, 212, 191, 0.1);
+            border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+            padding: 0.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ticker-item strong { color: var(--accent-teal); margin-right: 0.5rem; }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- Dashboard Grid --- */
+        main {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        .visuals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* KPI Ribbon */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover { transform: translateY(-4px); border-color: var(--accent-teal); }
+
+        .kpi-card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, transparent 50%, rgba(45, 212, 191, 0.05) 50%);
+        }
+
+        .kpi-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+        .kpi-value { font-size: 1.8rem; font-weight: 600; margin-top: 0.5rem; }
+        .kpi-trend { font-size: 0.75rem; margin-top: 0.5rem; color: var(--accent-teal); }
+
+        /* Chart Rows */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 1.5rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            min-height: 300px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title { font-size: 1rem; font-weight: 600; }
+        .chart-actions { font-size: 0.8rem; color: var(--text-dim); cursor: pointer; }
+
+        /* Placeholder Visuals */
+        .viz-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(transparent 95%, rgba(255,255,255,0.05) 95%),
+                        linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.05) 95%);
+            background-size: 40px 40px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .line-viz {
+            width: 100%;
+            height: 100%;
+            border-left: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .line-path {
+            position: absolute;
+            width: 100%; height: 60%;
+            border-top: 3px solid var(--accent-teal);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px var(--accent-teal));
+        }
+
+        .bar { width: 30px; background: rgba(45, 212, 191, 0.3); border-radius: 4px 4px 0 0; transition: height 1s ease; }
+        .bar.anomaly { background: rgba(251, 113, 133, 0.4); border: 1px solid var(--accent-rose); }
+
+        /* --- Sidebar AI Panel --- */
+        .sidebar {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .insight-card {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        .insight-card.alert { border-left-color: var(--accent-rose); }
+
+        .insight-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .insight-text { font-size: 0.85rem; line-height: 1.4; color: var(--text-main); }
+
+        .recommendation {
+            margin-top: auto;
+            background: linear-gradient(to right, var(--accent-teal), #06b6d4);
+            color: var(--bg-deep);
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="title-area">
+            <h1>FusionMart Executive</h1>
+            <span>AI Sales Intelligence Platform</span>
+        </div>
+        <div class="slicers">
+            <div class="slicer">Region: All</div>
+            <div class="slicer">Period: 2024 YTD</div>
+            <div class="slicer">Category: Laptops</div>
+            <div class="slicer">Channel: Omni</div>
+        </div>
+    </header>
+
+    <div class="ai-ticker">
+        <div class="ticker-content">
+            <div class="ticker-item"><strong>PROJECTION:</strong> Revenue expected to reach ₹92.12 Cr this quarter.</div>
+            <div class="ticker-item"><strong>ALERT:</strong> South India anomaly detected (Gap: -₹22.84 Cr).</div>
+            <div class="ticker-item"><strong>DEMAND:</strong> FusionPhone X demand surging +15%.</div>
+            <div class="ticker-item"><strong>ACCURACY:</strong> Current model precision at 81.70%.</div>
+        </div>
+    </div>
+
+    <main>
+        <div class="visuals-container">
+            <!-- KPI RIBBON -->
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Revenue</div>
+                    <div class="kpi-value">₹342.5 Cr</div>
+                    <div class="kpi-trend">↑ 12.4% vs LY</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Profit</div>
+                    <div class="kpi-value">₹89.2 Cr</div>
+                    <div class="kpi-trend">↑ 8.1% vs LY</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Forecast Rev (90d)</div>
+                    <div class="kpi-value" style="color: var(--accent-teal)">₹92.1 Cr</div>
+                    <div class="kpi-trend" style="color: var(--text-dim)">Confidence: High</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Forecast Accuracy</div>
+                    <div class="kpi-value">81.7%</div>
+                    <div class="kpi-trend" style="color: var(--text-dim)">MAPE: 18.30%</div>
+                </div>
+            </div>
+
+            <!-- TREND GRID -->
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Revenue Trajectory: Actual vs Forecast</div>
+                        <div class="chart-actions">View Details</div>
+                    </div>
+                    <div class="viz-placeholder">
+                        <div class="line-viz">
+                            <div class="line-path" style="top: 40%; transform: rotate(-5deg);"></div>
+                            <div class="line-path" style="top: 50%; border-top-style: dashed; opacity: 0.5;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Regional Performance Map</div>
+                        <div class="chart-actions">North · South · East · West</div>
+                    </div>
+                    <div class="viz-placeholder">
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar anomaly" style="height: 40%"></div>
+                        <div class="bar" style="height: 75%"></div>
+                        <div class="bar" style="height: 55%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID -->
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Top 10 Products by Revenue</div>
+                    </div>
+                    <div style="font-size: 0.85rem;">
+                        <div style="display:flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <span>1. FusionBook Pro</span>
+                            <strong>₹12.4M</strong>
+                        </div>
+                        <div style="display:flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <span>2. FusionPhone X</span>
+                            <strong>₹10.1M</strong>
+                        </div>
+                        <div style="display:flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <span>3. FusionTab Ultra</span>
+                            <strong>₹8.5M</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Category Distribution</div>
+                    </div>
+                    <div style="height: 150px; width: 150px; border-radius: 50%; border: 20px solid var(--accent-teal); margin: 0 auto; position: relative;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.7rem; text-align: center;">
+                            SMARTPHONES<br><strong>42%</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-title">AI Insights</div>
+            
+            <div class="insight-card">
+                <span class="insight-tag">Revenue Outlook</span>
+                <p class="insight-text">Revenue is expected to increase by 12% over the next week, driven by projected sales of ₹9.2 Cr.</p>
+            </div>
+
+            <div class="insight-card alert">
+                <span class="insight-tag" style="color: var(--accent-rose)">Regional Risk</span>
+                <p class="insight-text">⚠️ Anomaly Detected: South India underperformed by ₹22.84 Cr against AI expectations last month.</p>
+            </div>
+
+            <div class="insight-card">
+                <span class="insight-tag">Demand Surge</span>
+                <p class="insight-text">📈 FusionPhone X demand is increasing. Estimated 4,500 units required next cycle.</p>
+            </div>
+
+            <div class="recommendation">
+                💡 Initiate targeted restock for Smartphones in South India.
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        &copy; 2026 FusionMart Global · Powered by FusionAI Intelligence Engine
+    </footer>
+
+</body>
+</html>
